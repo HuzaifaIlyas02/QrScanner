@@ -2,9 +2,15 @@
 
 This Python script utilizes the OpenCV and pyzbar libraries to create a barcode scanner with added authentication. The program reads barcodes from an image or webcam feed, checks the decoded data against a list of authorized data, and provides feedback on the authentication status.
 
-Prerequisites
+## Prerequisites
 Make sure you have the required libraries installed:
 
+```bash
+  pip install opencv-python 
+  pip install pyzbar
+```
+
+## Usage
 If you want to run this project locally, follow these steps:
 
 1. Clone this repository:
