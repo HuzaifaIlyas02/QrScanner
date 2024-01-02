@@ -25,7 +25,7 @@ while True:
             myColor = (0,255,0) # Green
         else:
             myOutput = 'Un-Authorized'
-            myyColor = (0,0,255) # Red
+            myColor = (0,0,255) # Red
             
         # bounding polygon around the barcode
         pts = np.array([barcode.polygon],np.int32)
