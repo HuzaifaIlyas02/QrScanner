@@ -21,10 +21,10 @@ while True:
 
         # Authentication
         if myData in myDataList:
-            myOutput = 'Authorized'
+            myOutput = 'Authorized Access'
             myColor = (0,255,0) # Green
         else:
-            myOutput = 'Un-Authorized'
+            myOutput = 'Un-Authorized Access'
             myColor = (0,0,255) # Red
             
         # bounding polygon around the barcode
