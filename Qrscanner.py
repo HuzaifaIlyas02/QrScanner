@@ -12,11 +12,16 @@ while True:
     success, img = cap.read()
     # For multiple bar codes in a picture
     for barcode in decode(img):
-        print(barcode.data)
-
         # Decoding the actual data from the Bar code
         myData = barcode.data.decode('utf-8')
         print(myData)
 
+        # bounding polygon around the barcode
+        pts = np.array([barcode.polygon],np.int32)
+        pts = pts.reshape((-1,1,2))
+        cv2.polylines(img,[pts],True,(255,0,255),5)
+
+        # Displaying the message above the barcode
+        cv2.putText(img,myData,(barcode.rect[0],barcode.rect[1]),cv2.FONT_HERSHEY_SIMPLEX,0.9,(255,0,255),2)
     cv2.imshow('Result', img)
     cv2.waitKey(1)
