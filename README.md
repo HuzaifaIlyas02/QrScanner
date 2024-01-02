@@ -33,4 +33,4 @@ Place the image file containing barcodes in the project directory and update the
 The myDataFile.txt file should contain a list of authorized barcode data, with each data on a new line.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
