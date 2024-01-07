@@ -8,6 +8,9 @@ Make sure you have the required libraries installed:
 ```bash
   pip install opencv-python 
   pip install pyzbar
+  pip install flask
+  pip install numpy
+  pip install sqlite3
 ```
 
 ## Usage
@@ -24,7 +27,7 @@ cd QrScanner
 
 3. Run Locally:
 ```
-python Qrscanner.py
+python app.py
 ```
 
 
