@@ -34,5 +34,6 @@ while True:
 
         # Displaying the message above the barcode
         cv2.putText(img,myOutput,(barcode.rect[0],barcode.rect[1]),cv2.FONT_HERSHEY_SIMPLEX,0.9,myColor,2)
+        
     cv2.imshow('Result', img)
     cv2.waitKey(1)

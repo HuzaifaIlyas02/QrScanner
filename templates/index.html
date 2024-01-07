@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #fff;
+            background-color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 500px; /* Fixed width, you can adjust as per your requirement */
+        }
+        .title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .description {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+        .btn {
+            border: 2px solid white;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-align: center;
+            display: inline-block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: none;
+        }
+        .footer {
+            margin-top: 30px;
+            color: #ccc;
+        }
+        .footer a {
+            color: #00BFFF;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Secure QR Code Verification</div>
+        <div class="description">
+            Quickly scan and validate QR codes for secure access. Upload your QR code image to check for authorization.
+        </div>
+        <form action="/scan" method="post" enctype="multipart/form-data">
+            <div class="upload-btn-wrapper">
+                <button type="button" class="btn">Choose QR Code Image</button>
+                <input type="file" name="file" accept="image/*" required onchange="previewFile()">
+            </div>
+            <img id="image-preview" class="image-preview" src="#" alt="Image preview...">
+            <input type="submit" class="btn" value="Scan and Validate">
+        </form>
+        <div class="footer">
+            Powered by <a href="https://github.com/huzaifailyas02/QrScanner">GitHub</a>
+        </div>
+    </div>
+
+    <script>
+        function previewFile() {
+            var preview = document.getElementById('image-preview');
+            var file    = document.querySelector('input[type=file]').files[0];
+            var reader  = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+                preview.style.display = 'block';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+                preview.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
